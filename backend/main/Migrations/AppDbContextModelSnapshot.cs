@@ -56,15 +56,10 @@ namespace main.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int>("ProcessoId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Tipo")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProcessoId");
 
                     b.ToTable("Documentos");
                 });
@@ -80,9 +75,6 @@ namespace main.Migrations
                     b.Property<DateTime>("DataVencimento")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ProcessoId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -90,8 +82,6 @@ namespace main.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProcessoId");
 
                     b.ToTable("Prazos");
                 });
@@ -113,12 +103,24 @@ namespace main.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Documento")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DocumentoId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Numero")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("Orgao")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Prazo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PrazoId")
                         .HasColumnType("int");
 
                     b.Property<int>("ProcuradorId")
@@ -156,28 +158,6 @@ namespace main.Migrations
                     b.ToTable("Procuradores");
                 });
 
-            modelBuilder.Entity("main.Models.Documento", b =>
-                {
-                    b.HasOne("main.Models.Processo", "Processo")
-                        .WithMany("Documentos")
-                        .HasForeignKey("ProcessoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Processo");
-                });
-
-            modelBuilder.Entity("main.Models.Prazo", b =>
-                {
-                    b.HasOne("main.Models.Processo", "Processo")
-                        .WithMany("Prazos")
-                        .HasForeignKey("ProcessoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Processo");
-                });
-
             modelBuilder.Entity("main.Models.Processo", b =>
                 {
                     b.HasOne("main.Models.Procurador", "Procurador")
@@ -187,13 +167,6 @@ namespace main.Migrations
                         .IsRequired();
 
                     b.Navigation("Procurador");
-                });
-
-            modelBuilder.Entity("main.Models.Processo", b =>
-                {
-                    b.Navigation("Documentos");
-
-                    b.Navigation("Prazos");
                 });
 #pragma warning restore 612, 618
         }

@@ -24,9 +24,17 @@ namespace main.Models
         [Required]
         public StatusProcesso Status { get; set; }
 
-        public List<Prazo> Prazos {  get; set; }  = new List<Prazo>();
+        [Required]
+        public int PrazoId {  get; set; }
 
-        public List<Documento> Documentos { get; set; } = new List<Documento>();
+        [ForeignKey("PrazoId")]
+        public int Prazo {  get; set; }
+
+        [Required]
+        public int DocumentoId { get; set; }
+
+        [ForeignKey("DocumentoId")]
+        public int Documento { get; set; }
 
         [Required]
         public int ProcuradorId { get; set; }

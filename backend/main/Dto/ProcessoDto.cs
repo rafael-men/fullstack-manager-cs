@@ -25,5 +25,11 @@
 
         [Required]
         public int ProcuradorId { get; set; }
+
+        [Required]
+        public int PrazoId { get; set; }
+
+        [Required]
+        public int DocumentoId { get; set; }
     }
 }

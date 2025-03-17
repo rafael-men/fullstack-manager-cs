@@ -20,11 +20,5 @@ namespace main.Models
         [Required]
         public StatusPrazo Status { get; set; } 
 
-        [Required]
-        public int ProcessoId { get; set; }
-
-        [ForeignKey("ProcessoId")]
-        public Processo Processo { get; set; }
-
     }
 }

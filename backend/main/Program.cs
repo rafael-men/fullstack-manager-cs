@@ -1,5 +1,6 @@
 using System.Reflection;
 using main.Data;
+using main.Repository;
 using main.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -31,6 +32,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<ProcessoService>();
 builder.Services.AddScoped<ProcuradorService>();
 builder.Services.AddScoped<ClienteService>();
+builder.Services.AddScoped<DocumentoService>();
+builder.Services.AddScoped<PrazoService>();
+builder.Services.AddScoped<ProcessoRepository>();
 
 var app = builder.Build();
 

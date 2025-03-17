@@ -71,17 +71,17 @@ namespace main.Controllers
             }
             catch (KeyNotFoundException ex)
             {
-                // Tratando erro de procurador não encontrado
+               
                 return NotFound(ex.Message);
             }
             catch (InvalidOperationException ex)
             {
-                // Tratando erro de procurador associado a processos
+              
                 return BadRequest(ex.Message);
             }
             catch (Exception ex)
             {
-                // Tratando outros tipos de erro
+              
                 return StatusCode(500, $"Erro interno ao tentar deletar o procurador: {ex.Message}");
             }
         }

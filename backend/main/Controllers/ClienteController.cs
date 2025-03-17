@@ -32,7 +32,7 @@ namespace main.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ClienteDto>> GetClienteById(int id)
         {
-            // Buscar o cliente pelo ID
+            
             var cliente = await _clienteService.GetClienteById(id);
 
             if (cliente == null)
