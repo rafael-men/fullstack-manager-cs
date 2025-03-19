@@ -19,7 +19,7 @@ O sistema permite:
 - **Banco de Dados:** SQL Server
 - **Autenticação:** JWT (JSON Web Tokens)
 - **Documentação da API:** Swagger
-- **Conteinerização:** Docker Compose 
+
 
 ## Estrutura do Projeto
 
@@ -34,8 +34,7 @@ O projeto está dividido em três partes principais:
 ### Pré-requisitos
 
 - .Net Framework instalado
-- Sql Server instalado (Caso queira rodar o projeto localmente)
-- Docker instalado
+- Sql Server instalado 
 - Git instalado
 
 ### Passos para Execução
@@ -46,21 +45,6 @@ O projeto está dividido em três partes principais:
    git clone https://github.com/seu-usuario/nome-do-projeto.git
    ```
 ## Backend
-   
-2. Rodando a aplicação no docker
-
-```bash
-  cd backend
-  docker compose up
-```
-2.1 - Isso irá criar os contêineres do banco e da aplicação
-
-2.2 - Execute as migrações ao banco (no Visual Studio vá em Ferramentas / Console do Ger. de Pacotes do Nuget)
-
-```bash
-add-migration Migração-para-o-Banco
-update-database
-```
 
 3. Rodando Localmente
 
