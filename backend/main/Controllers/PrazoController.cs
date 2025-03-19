@@ -4,10 +4,12 @@ using System.Threading.Tasks;
 using main.Dto;
 using main.Models;
 using main.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace main.Controllers
 {
+    [Authorize(Policy = "Procurador")]
     [ApiController]
     [Route("pge/prazos")]
     public class PrazoController : ControllerBase
@@ -19,7 +21,7 @@ namespace main.Controllers
             _prazoService = prazoService;
         }
 
-       
+      
         [HttpGet]
         public async Task<ActionResult<List<Prazo>>> GetAll()
         {
@@ -42,7 +44,7 @@ namespace main.Controllers
             }
         }
 
-        
+      
         [HttpDelete("deletar/{id}")]
         public async Task<ActionResult> Delete(int id)
         {

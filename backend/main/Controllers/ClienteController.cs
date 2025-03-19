@@ -1,9 +1,11 @@
 ﻿using main.Dto.main.Models.Dto;
 using main.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace main.Controllers
 {
+    [Authorize(Policy = "Cliente")]
     [Route("pge/clientes")]
     [ApiController]
     public class ClienteController : ControllerBase
@@ -15,6 +17,7 @@ namespace main.Controllers
             _clienteService = clienteService;
         }
 
+       
         [HttpGet]
         public async Task<ActionResult<List<ClienteDto>>> GetAllClientes()
         {
@@ -29,6 +32,7 @@ namespace main.Controllers
             }
         }
 
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<ClienteDto>> GetClienteById(int id)
         {
@@ -43,7 +47,7 @@ namespace main.Controllers
             return Ok(cliente); 
         }
 
-
+       
         [HttpPost("novo")]
         public async Task<ActionResult<ClienteDto>> CreateCliente([FromBody] ClienteDto clienteDto)
         {
@@ -57,6 +61,7 @@ namespace main.Controllers
             return CreatedAtAction(nameof(GetClienteById), new { id = createdCliente.Id }, createdCliente);
         }
 
+       
         [HttpDelete("deletar/{id}")]
         public async Task<IActionResult> DeleteCliente(int id)
         {

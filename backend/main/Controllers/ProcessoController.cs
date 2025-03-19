@@ -3,11 +3,13 @@ using main.Dto;
 using main.Dto.main.Dto;
 using main.Models;
 using main.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace main.Controllers
 {
+    [Authorize(Policy = "Procurador")]
     [Route("pge/processos")]
     [ApiController]
     public class ProcessoController : ControllerBase
@@ -20,6 +22,7 @@ namespace main.Controllers
             _processoService = processoService;
         }
 
+       
         [HttpGet]
         public async Task<IActionResult> getAllProcessos()
         {
@@ -27,7 +30,7 @@ namespace main.Controllers
             return Ok(processos);
         }
 
-
+       
         [HttpPost("novo")]
         public async Task<ActionResult<Processo>> Create([FromBody] ProcessoDto processoDto)
         {
@@ -46,6 +49,7 @@ namespace main.Controllers
          
         }
 
+      
         [HttpPut("atualizar/{id}")]
         public async Task<ActionResult> EditarProcesso(int id, [FromBody] ProcessoDto processoDto)
         {
@@ -54,6 +58,7 @@ namespace main.Controllers
             return NoContent();
         }
 
+       
         [HttpGet("filtrar")]
         public async Task<ActionResult<List<ProcessoDto>>> FiltrarProcessos([FromQuery] ProcessoFiltroDto filtroDto)
         {
@@ -61,7 +66,7 @@ namespace main.Controllers
             return Ok(processos);
         }
 
-
+      
         [HttpDelete("deletar/{id}")]
         public async Task<ActionResult> DeletarProcesso(int id)
         {

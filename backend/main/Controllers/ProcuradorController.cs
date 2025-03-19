@@ -1,10 +1,12 @@
 ﻿using main.Dto;
 using main.Models;
 using main.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace main.Controllers
 {
+    [Authorize(Policy = "Procurador")]
     [Route("pge/procuradores")]
     [ApiController]
     public class ProcuradorController : ControllerBase
@@ -16,6 +18,7 @@ namespace main.Controllers
             _procuradorService = procuradorService;
         }
 
+   
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Procurador>>> GetAll()
         {
@@ -30,6 +33,7 @@ namespace main.Controllers
             }
         }
 
+        
         [HttpPost("novo")]
         public async Task<ActionResult<Procurador>> Create([FromBody] ProcuradorDto procuradorDto)
         {
@@ -55,6 +59,7 @@ namespace main.Controllers
             }
         }
 
+       
         [HttpDelete("deletar/{procuradorId}")]
         public async Task<IActionResult> DeletarProcurador(int procuradorId)
         {
@@ -85,5 +90,6 @@ namespace main.Controllers
                 return StatusCode(500, $"Erro interno ao tentar deletar o procurador: {ex.Message}");
             }
         }
+
     }
 }

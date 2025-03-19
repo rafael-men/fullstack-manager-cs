@@ -12,6 +12,7 @@ namespace main.Data
         public DbSet<Documento> Documentos { get; set; }
         public DbSet<Procurador> Procuradores { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<User> Users { get; set; }
 
     }
 }
