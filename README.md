@@ -46,8 +46,6 @@ O projeto está dividido em três partes principais:
    ```
 ## Backend
 
-3. Rodando Localmente
-
 3.1 - Inicie o serviço do Sql Server a sua máquina.
 
 3.2 - Rode os comandos
