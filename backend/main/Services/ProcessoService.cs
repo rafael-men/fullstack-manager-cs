@@ -40,6 +40,41 @@ namespace main.Services
 
             return processoDtos;
         }
+        public async Task<ProcessoDto> BuscarProcessoPeloNumero(int numero)
+        {
+     
+            if (numero <= 0)
+            {
+                throw new ArgumentException("O número do processo é inválido.");
+            }
+
+            
+            var processo = await _context.Processos
+                .FirstOrDefaultAsync(p => p.Numero == numero.ToString()); 
+
+          
+            if (processo == null)
+            {
+                throw new InvalidOperationException("Processo não encontrado.");
+            }
+
+        
+            var processoDto = new ProcessoDto
+            {
+                Numero = processo.Numero,
+                Orgao = processo.Orgao,
+                Assunto = processo.Assunto,
+                Status = processo.Status,
+                ClientesIds = processo.ClientesIds,
+                ProcuradorId = processo.ProcuradorId, 
+                PrazoId = processo.PrazoId,
+                DocumentoId = processo.DocumentoId
+            };
+
+            return processoDto;
+        }
+
+
 
 
         public async Task<Processo> CriarProcesso(ProcessoDto processoDto)

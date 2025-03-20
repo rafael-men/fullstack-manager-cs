@@ -35,7 +35,8 @@ const HomeCliente = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-semibold mb-6">Processos</h1>
+      <p className='text-3xl font-semibold mb-2'>Minha Área</p>
+      <h1 className="text-3xl font-semibold mb-6">Processos Atuais Disponíveis</h1>
 
       <div className="mb-6 flex gap-4">
         <button onClick={() => navigate('/editar-cadastro-cliente')} className="px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600">

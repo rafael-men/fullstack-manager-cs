@@ -9,6 +9,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{3BCA09A6-183F-47DF-D09C-3E7238187E64}|backend\\main\\main.csproj|c:\\projetos\\fullstack-manager-cs\\backend\\main\\services\\processoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BCA09A6-183F-47DF-D09C-3E7238187E64}|backend\\main\\main.csproj|solutionrelative:backend\\main\\services\\processoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BCA09A6-183F-47DF-D09C-3E7238187E64}|backend\\main\\main.csproj|c:\\projetos\\fullstack-manager-cs\\backend\\main\\dto\\processodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BCA09A6-183F-47DF-D09C-3E7238187E64}|backend\\main\\main.csproj|solutionrelative:backend\\main\\dto\\processodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,19 +22,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProcessoController.cs",
-              "DocumentMoniker": "C:\\Projetos\\fullstack-manager-cs\\backend\\main\\Controllers\\ProcessoController.cs",
-              "RelativeDocumentMoniker": "backend\\main\\Controllers\\ProcessoController.cs",
-              "ToolTip": "C:\\Projetos\\fullstack-manager-cs\\backend\\main\\Controllers\\ProcessoController.cs",
-              "RelativeToolTip": "backend\\main\\Controllers\\ProcessoController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ProcessoDto.cs",
+              "DocumentMoniker": "C:\\Projetos\\fullstack-manager-cs\\backend\\main\\Dto\\ProcessoDto.cs",
+              "RelativeDocumentMoniker": "backend\\main\\Dto\\ProcessoDto.cs",
+              "ToolTip": "C:\\Projetos\\fullstack-manager-cs\\backend\\main\\Dto\\ProcessoDto.cs",
+              "RelativeToolTip": "backend\\main\\Dto\\ProcessoDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T22:49:02.156Z",
+              "WhenOpened": "2025-03-20T21:30:03.734Z",
               "EditorCaption": ""
             },
             {
@@ -41,9 +45,22 @@
               "RelativeDocumentMoniker": "backend\\main\\Services\\ProcessoService.cs",
               "ToolTip": "C:\\Projetos\\fullstack-manager-cs\\backend\\main\\Services\\ProcessoService.cs",
               "RelativeToolTip": "backend\\main\\Services\\ProcessoService.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAYwLYAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAArwCoAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T22:48:58.046Z",
+              "WhenOpened": "2025-03-20T21:23:27.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProcessoController.cs",
+              "DocumentMoniker": "C:\\Projetos\\fullstack-manager-cs\\backend\\main\\Controllers\\ProcessoController.cs",
+              "RelativeDocumentMoniker": "backend\\main\\Controllers\\ProcessoController.cs",
+              "ToolTip": "C:\\Projetos\\fullstack-manager-cs\\backend\\main\\Controllers\\ProcessoController.cs",
+              "RelativeToolTip": "backend\\main\\Controllers\\ProcessoController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAA3wCEAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T21:22:34.937Z",
               "EditorCaption": ""
             }
           ]

@@ -14,34 +14,12 @@ namespace main.Services
             _context = context;
         }
 
-        public async Task<List<ClienteDto>> GetAllClientes()
+        public async Task<List<Cliente>> GetAllClientes()
         {
-            var clientes = await _context.Clientes
-                .Select(c => new ClienteDto
-                {
-                    Nome = c.Nome
-                })
-                .ToListAsync();
+            return await _context.Clientes.ToListAsync();
 
-            return clientes;
         }
 
-        public async Task<ClienteDto> CreateCliente(ClienteDto clienteDto)
-        {
-            var cliente = new Cliente
-            {
-                Nome = clienteDto.Nome
-            };
-
-            _context.Clientes.Add(cliente);
-            await _context.SaveChangesAsync();
-
-       
-            return new ClienteDto
-            {
-                Nome = cliente.Nome
-            };
-        }
 
         public async Task<ClienteDto> GetClienteById(int id)
         {

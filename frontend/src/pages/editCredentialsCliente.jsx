@@ -78,7 +78,7 @@ const EditarCredenciaisCliente = () => {
         <div className="flex flex-col gap-6">
           <input
             type="text"
-            placeholder="Usuário"
+            placeholder="Usuário Atual"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="w-full px-4 py-3 border rounded-md focus:ring focus:ring-blue-300"

@@ -18,9 +18,8 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-black text-white py-4 fixed bottom-0 w-full">
-      <div className="flex justify-center">
-        <p>&copy; {new Date().getFullYear()} Desenvolvido por Rafael</p>
+    <footer className="bg-black text-white py-4  bottom-0 w-full">
+      <div className="flex justify-between">
         <p className="ml-4">{currentDateTime}</p> 
       </div>
     </footer>

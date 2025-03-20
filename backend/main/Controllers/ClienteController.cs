@@ -1,4 +1,6 @@
-﻿using main.Dto.main.Models.Dto;
+﻿using System.Threading.Tasks;
+using main.Dto.main.Models.Dto;
+using main.Models;
 using main.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +21,7 @@ namespace main.Controllers
 
        
         [HttpGet]
-        public async Task<ActionResult<List<ClienteDto>>> GetAllClientes()
+        public async Task<ActionResult<IEnumerable<Cliente>>> GetAllClientes()
         {
             try
             {
@@ -48,18 +50,6 @@ namespace main.Controllers
         }
 
        
-        [HttpPost("novo")]
-        public async Task<ActionResult<ClienteDto>> CreateCliente([FromBody] ClienteDto clienteDto)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var createdCliente = await _clienteService.CreateCliente(clienteDto);
-
-            return CreatedAtAction(nameof(GetClienteById), new { id = createdCliente.Id }, createdCliente);
-        }
 
        
         [HttpDelete("deletar/{id}")]

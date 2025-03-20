@@ -18,7 +18,7 @@ const Login = () => {
 
       
       const Token = String(response.token);
-      console.log("Token recebido:", Token);
+      
 
      
       if (!Token || Token.split('.').length !== 3) {

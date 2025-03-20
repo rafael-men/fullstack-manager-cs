@@ -116,12 +116,7 @@ public class UserService
     {
         var user = _context.Users.SingleOrDefault(u => u.Username == username);
 
-        if (user == null)
-        {
-            throw new Exception("Usuário não encontrado");
-        }
 
-        
         if (!BCrypt.Net.BCrypt.Verify(oldPassword, user.PasswordHash))
         {
             throw new Exception("Senha antiga incorreta");

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
 
 const HomeProcurador = () => {
   const [processos, setProcessos] = useState([]);
   const [procuradores, setProcuradores] = useState([]);
   const [documentos, setDocumentos] = useState([]);
+  const [clientes,setClientes] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,7 +19,7 @@ const HomeProcurador = () => {
           return;
         }
 
-        const [processosRes, procuradoresRes, documentosRes] = await Promise.all([
+        const [processosRes, procuradoresRes, documentosRes, clientesRes] = await Promise.all([
           axios.get('http://localhost:5250/pge/processos', {
             headers: { Authorization: `Bearer ${token}` },
           }),
@@ -27,11 +29,15 @@ const HomeProcurador = () => {
           axios.get('http://localhost:5250/pge/documentos', {
             headers: { Authorization: `Bearer ${token}` },
           }),
+          axios.get('http://localhost:5250/pge/clientes', {
+            headers: { Authorization: `Bearer ${token}` },
+          }),
         ]);
 
         setProcessos(processosRes.data);
         setProcuradores(procuradoresRes.data);
         setDocumentos(documentosRes.data);
+        setClientes(clientesRes.data)
       } catch (error) {
         console.error("Erro ao buscar dados", error);
       }
@@ -94,8 +100,8 @@ const HomeProcurador = () => {
         });
   
         if (response.status === 200) {
+          window.alert('Processo Excluído')
           setProcessos((prevProcessos) => prevProcessos.filter((processo) => processo.numero !== numero));
-          alert("Processo excluído com sucesso!");
         }
       } catch (error) {
         console.error("Erro ao excluir processo", error);
@@ -105,8 +111,8 @@ const HomeProcurador = () => {
   
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-semibold mb-6">Todos os Processos, Procuradores e Documentos</h1>
+    <div className="container mx-auto p-4 py-8">
+      <h1 className="text-3xl font-semibold mb-6">Olá, Bem Vindo</h1>
 
       <div className="mb-6 flex gap-4">
         <button onClick={() => navigate('/processos/criar')} className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
@@ -179,7 +185,7 @@ const HomeProcurador = () => {
               <tr className="bg-gray-200">
                 <th className="px-4 py-2">ID</th>
                 <th className="px-4 py-2">OAB</th>
-                <th className="px-4 py-2">Processos</th>
+                <th className="px-4 py-2">Processos Atribuídos (ID)</th>
               </tr>
             </thead>
             <tbody>
@@ -188,6 +194,30 @@ const HomeProcurador = () => {
                   <td className="px-4 py-2">{procurador.id}</td>
                   <td className="px-4 py-2">{procurador.oab}</td>
                   <td className="px-4 py-2">{procurador.processosIds.join(', ')}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+       
+      <div className="mb-6">
+        <h2 className="text-xl font-semibold mb-4">Clientes</h2>
+        <div className="overflow-x-auto bg-white shadow-md rounded-lg">
+          <table className="min-w-full table-auto text-left text-sm">
+            <thead>
+              <tr className="bg-gray-200">
+                <th className="px-4 py-2">ID</th>
+                <th className="px-4 py-2">Nome</th>
+              </tr>
+            </thead>
+            <tbody>
+              {clientes.map((cliente) => (
+                <tr key={cliente.id} className="border-t hover:bg-gray-100">
+                  <td className="px-4 py-2">{cliente.id}</td>
+                  <td className="px-4 py-2">{cliente.nome}</td>
                 </tr>
               ))}
             </tbody>

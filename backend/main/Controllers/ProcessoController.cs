@@ -30,6 +30,34 @@ namespace main.Controllers
             return Ok(processos);
         }
 
+        [HttpGet("{numero}")]
+        public async Task<IActionResult> BuscarProcessoPeloNumeroAsync(int numero)
+        {
+            try
+            {
+          
+                var processoDto = await _processoService.BuscarProcessoPeloNumero(numero);
+
+         
+                return Ok(processoDto);
+            }
+            catch (ArgumentException ex)
+            {
+                
+                return BadRequest(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+               
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+             
+                return StatusCode(500, $"Erro interno: {ex.Message}");
+            }
+        }
+
         [Authorize(Policy = "Procurador")]
         [HttpPost("novo")]
         public async Task<ActionResult<Processo>> Create([FromBody] ProcessoDto processoDto)
