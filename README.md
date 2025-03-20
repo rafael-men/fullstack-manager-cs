@@ -83,7 +83,7 @@ npm run dev
 ```
 5.2 - A Aplicação iniciará em **http://localhost:5173**
 
-# Diagrama ER do Banco de Dados da aplicação abaixo 
+## Diagrama ER do Banco de Dados da aplicação abaixo 
 
 
 
