@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace main.Controllers
 {
-    [Authorize(Policy = "Procurador")]
+   
     [Route("pge/processos")]
     [ApiController]
     public class ProcessoController : ControllerBase
@@ -22,7 +22,7 @@ namespace main.Controllers
             _processoService = processoService;
         }
 
-       
+        
         [HttpGet]
         public async Task<IActionResult> getAllProcessos()
         {
@@ -30,7 +30,7 @@ namespace main.Controllers
             return Ok(processos);
         }
 
-       
+        [Authorize(Policy = "Procurador")]
         [HttpPost("novo")]
         public async Task<ActionResult<Processo>> Create([FromBody] ProcessoDto processoDto)
         {
@@ -49,11 +49,11 @@ namespace main.Controllers
          
         }
 
-      
-        [HttpPut("atualizar/{id}")]
-        public async Task<ActionResult> EditarProcesso(int id, [FromBody] ProcessoDto processoDto)
+        [Authorize(Policy = "Procurador")]
+        [HttpPut("atualizar/{numero}")]
+        public async Task<ActionResult> EditarProcesso(int numero, [FromBody] ProcessoDto processoDto)
         {
-            await _processoService.EditarProcesso(id, processoDto);
+            await _processoService.EditarProcesso(numero, processoDto);
             
             return NoContent();
         }
@@ -66,17 +66,18 @@ namespace main.Controllers
             return Ok(processos);
         }
 
-      
-        [HttpDelete("deletar/{id}")]
-        public async Task<ActionResult> DeletarProcesso(int id)
+        [Authorize(Policy = "Procurador")]
+        [HttpDelete("deletar/{numero}")]
+        public async Task<ActionResult> DeletarProcesso(string numero)
         {
-            var sucesso = await _processoService.DeletarProcesso(id);
+            var sucesso = await _processoService.DeletarProcesso(numero);
             if (!sucesso)
             {
                 return NotFound("Processo não encontrado ou não pode ser deletado.");
             }
             return NoContent();
         }
+
 
     }
 }

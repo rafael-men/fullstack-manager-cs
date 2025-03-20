@@ -118,6 +118,7 @@ builder.Services.AddScoped<ProcessoRepository>();
 builder.Services.AddScoped<UserService>();
 
 
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

@@ -112,12 +112,6 @@ public class UserService
 
 
 
-
-    public User GetUserByUsername(string username)
-    {
-        return _context.Users.SingleOrDefault(u => u.Username == username);
-    }
-
     public void UpdateCredentials(string username, string oldPassword, string newPassword)
     {
         var user = _context.Users.SingleOrDefault(u => u.Username == username);

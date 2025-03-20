@@ -33,31 +33,6 @@ namespace main.Controllers
             }
         }
 
-        
-        [HttpPost("novo")]
-        public async Task<ActionResult<Procurador>> Create([FromBody] ProcuradorDto procuradorDto)
-        {
-            try
-            {
-                if (procuradorDto == null)
-                    return BadRequest("Dados do procurador não informados.");
-
-                var procuradorCriado = await _procuradorService.CriarProcurador(procuradorDto);
-                return CreatedAtAction(nameof(GetAll), new { id = procuradorCriado.Id }, procuradorCriado);
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest($"Erro de validação: {ex.Message}");
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound($"Erro ao buscar processos: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Erro ao criar procurador: {ex.Message}");
-            }
-        }
 
        
         [HttpDelete("deletar/{procuradorId}")]

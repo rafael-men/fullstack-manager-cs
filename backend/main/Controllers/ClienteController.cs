@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace main.Controllers
 {
-    [Authorize(Policy = "Cliente")]
+    [Authorize(Policy = "Procurador")]
     [Route("pge/clientes")]
     [ApiController]
     public class ClienteController : ControllerBase

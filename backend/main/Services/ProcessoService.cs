@@ -129,9 +129,9 @@ namespace main.Services
             return processo;
         }
 
-        public async Task<Processo> EditarProcesso(int id, ProcessoDto processoDto)
+        public async Task<Processo> EditarProcesso(int numero, ProcessoDto processoDto)
         {
-            var processo = await _context.Processos.FindAsync(id);
+            var processo = await _context.Processos.FindAsync(numero);
             if (processo == null)
             {
                 throw new KeyNotFoundException("Processo não encontrado.");
@@ -266,22 +266,25 @@ namespace main.Services
             }).ToList();
         }
 
-        public async Task<bool> DeletarProcesso(int id)
+        public async Task<bool> DeletarProcesso(string numero)
         {
-            var processo = await _context.Processos.FindAsync(id);
+          
+            var processo = await _context.Processos
+                                         .FirstOrDefaultAsync(p => p.Numero == numero);
             if (processo == null)
             {
-                return false;
+                return false; 
             }
 
-         
+
             var procurador = await _context.Procuradores.FindAsync(processo.ProcuradorId);
             if (procurador != null)
             {
-                procurador.ProcessosIds.Remove(id);
+                procurador.ProcessosIds.Remove(processo.Id); 
                 _context.Procuradores.Update(procurador);
             }
 
+       
             _context.Processos.Remove(processo);
             await _context.SaveChangesAsync();
 

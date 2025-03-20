@@ -22,6 +22,7 @@
             _userService = userService;
         }
 
+        
         [HttpPost("register")]
         public IActionResult Register([FromBody] UserRegisterRequest request)
         {
@@ -63,7 +64,7 @@
         }
 
 
-
+        [AllowAnonymous]
         [HttpPost("login")]
         public IActionResult Login([FromBody] UserLoginRequest request)
         {
