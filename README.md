@@ -46,7 +46,7 @@ O projeto está dividido em três partes principais:
    ```
 ## Backend
 
-3.1 - Inicie o serviço do Sql Server a sua máquina.
+3.1 - Inicie o serviço do Sql Server a sua máquina e configure a DefaultConnection do appsettings.json de acordo com sua conexão.
 
 3.2 - Rode os comandos
 
