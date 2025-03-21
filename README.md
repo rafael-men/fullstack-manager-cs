@@ -80,7 +80,8 @@ npm run dev
 5.2 - A Aplicação iniciará em **http://localhost:5173**
 
 ## Diagrama ER do Banco de Dados da aplicação abaixo 
-![drawSQL-image-export-2025-03-21](https://github.com/user-attachments/assets/37d1d3ca-7500-4f52-baa3-a69394aee3cf)
+![drawSQL-image-export-2025-03-21](https://github.com/user-attachments/assets/f39ad7f3-6e25-4393-89d3-c8c0d3648450)
+
 **OBS: O relacionamento entre cliente - processo é de N : N**
 
 
