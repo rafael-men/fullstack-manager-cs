@@ -81,7 +81,7 @@ npm run dev
 
 ## Diagrama ER do Banco de Dados da aplicação abaixo 
 ![drawSQL-image-export-2025-03-21](https://github.com/user-attachments/assets/37d1d3ca-7500-4f52-baa3-a69394aee3cf)
-**OBS: O relacionamento entre clientes - processo é de N : N**
+**OBS: O relacionamento entre cliente - processo é de N : N**
 
 
 
