@@ -15,7 +15,7 @@ O sistema permite:
 ## Tecnologias Utilizadas
 
 - **Back-end:** C# e ASP.NET 9
-- **Front-end:** React.js + Vite
+- **Front-end:** React.js + Vite + Docker
 - **Banco de Dados:** SQL Server
 - **Autenticação:** JWT (JSON Web Tokens)
 - **Documentação da API:** Swagger
@@ -33,9 +33,10 @@ O projeto está dividido em três partes principais:
 
 ### Pré-requisitos
 
-- .Net Framework instalado
-- Sql Server instalado 
+- .Net Framework e SDK instalado
+- Microsoft Sql Server instalado 
 - Git instalado
+- Docker instalado para rodar o frontend
 
 ### Passos para Execução
 
@@ -44,6 +45,7 @@ O projeto está dividido em três partes principais:
    ```bash
    git clone https://github.com/seu-usuario/nome-do-projeto.git
    ```
+   
 ## Backend
 
 3.1 - Inicie o serviço do Sql Server a sua máquina e configure a DefaultConnection do appsettings.json de acordo com sua conexão.
@@ -59,7 +61,6 @@ dotnet run
 3.3 - Execute as migrações ao banco (no Visual Studio vá em Ferramentas / Console do Ger. de Pacotes do Nuget)
 
 ```bash
-add-migration Migração-para-o-Banco
 update-database
 ```
 
@@ -72,6 +73,7 @@ update-database
    ```bash
    docker compose up
    ```
+   
 5. Executando Localmente
 
 5.1 - Execute os comandos 
@@ -84,6 +86,10 @@ npm run dev
 5.2 - A Aplicação iniciará em **http://localhost:5173**
 
 ## Diagrama ER do Banco de Dados da aplicação abaixo 
+![drawSQL-image-export-2025-03-21](https://github.com/user-attachments/assets/37d1d3ca-7500-4f52-baa3-a69394aee3cf)
+**OBS: O relacionamento entre clientes - processo é de N : N**
+
+
 
 
 
