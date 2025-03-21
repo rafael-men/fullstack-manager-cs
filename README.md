@@ -15,7 +15,7 @@ O sistema permite:
 ## Tecnologias Utilizadas
 
 - **Back-end:** C# e ASP.NET 9
-- **Front-end:** React.js + Vite + Docker
+- **Front-end:** React.js + Vite 
 - **Banco de Dados:** SQL Server
 - **Autenticação:** JWT (JSON Web Tokens)
 - **Documentação da API:** Swagger
@@ -36,7 +36,7 @@ O projeto está dividido em três partes principais:
 - .Net Framework e SDK instalado
 - Microsoft Sql Server instalado 
 - Git instalado
-- Docker instalado para rodar o frontend
+
 
 ### Passos para Execução
 
@@ -67,12 +67,6 @@ update-database
 3.3 - A aplicação iniciará em **http://localhost:5250/swagger/index.html**
 
 ## Frontend
-
-4. Rodando a aplicação no docker
-
-   ```bash
-   docker compose up
-   ```
    
 5. Executando Localmente
 
