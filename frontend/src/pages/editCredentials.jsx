@@ -7,6 +7,8 @@ const EditarCredenciais = () => {
   const [username, setUsername] = useState('');
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
+  const [tokenUsername, setTokenUsername] = useState(''); 
+  const [usernameError, setUsernameError] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,7 +19,7 @@ const EditarCredenciais = () => {
       navigate('/');
       return;
     }
-
+ 
     try {
       const decodedToken = jwtDecode(token);
       const currentTime = Math.floor(Date.now() / 1000);
@@ -26,6 +28,10 @@ const EditarCredenciais = () => {
         alert('Sessão expirada. Faça login novamente.');
         localStorage.removeItem('token');
         navigate('/');
+      }
+      else {
+        const userNameFromToken = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+        setTokenUsername(userNameFromToken);
       }
     } catch (error) {
       console.error('Erro ao decodificar o token:', error);
@@ -53,6 +59,11 @@ const EditarCredenciais = () => {
       };
 
       const data = { username, oldPassword, newPassword };
+      
+      if (username !== tokenUsername) {
+        setUsernameError('Usuário inválido');
+        return;
+      }
 
       await axios.put(`http://localhost:5250/pge/usuarios/atualizar-credenciais`, data, config);
 
@@ -83,6 +94,7 @@ const EditarCredenciais = () => {
             onChange={(e) => setUsername(e.target.value)}
             className="w-full px-4 py-3 border rounded-md focus:ring focus:ring-blue-300"
           />
+          {usernameError && <span className="text-red-500 text-sm">{usernameError}</span>}
           <input
             type="password"
             placeholder="Senha Atual"

@@ -24,6 +24,12 @@ const Register = () => {
     setError("");
     setSuccess(false);
 
+
+    if (formData.role === "Cliente" && formData.name !== formData.username) {
+      setError("O nome deve ser igual ao usuário.");
+      return;
+    }
+
    
     const userPayload = {
       username: formData.username,

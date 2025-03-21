@@ -166,7 +166,7 @@ namespace main.Services
 
         public async Task<Processo> EditarProcesso(int numero, ProcessoDto processoDto)
         {
-            var processo = await _context.Processos.FindAsync(numero);
+            var processo = await _context.Processos.FirstAsync(p => p.Numero == numero.ToString());
             if (processo == null)
             {
                 throw new KeyNotFoundException("Processo não encontrado.");

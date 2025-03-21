@@ -35,7 +35,7 @@ const HomeCliente = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <p className='text-3xl font-semibold mb-2'>Minha Área</p>
+      <p className='text-3xl font-semibold mb-8'>Minha Área</p>
       <h1 className="text-3xl font-semibold mb-6">Processos Atuais Disponíveis</h1>
 
       <div className="mb-6 flex gap-4">
@@ -56,6 +56,7 @@ const HomeCliente = () => {
                 <th className="px-4 py-2">Órgão</th>
                 <th className="px-4 py-2">Assunto</th>
                 <th className="px-4 py-2">Status</th>
+                <th className="px-4 py-2">Prazo</th>
               </tr>
             </thead>
             <tbody>
@@ -65,6 +66,7 @@ const HomeCliente = () => {
                   <td className="px-4 py-2">{processo.orgao}</td>
                   <td className="px-4 py-2">{processo.assunto}</td>
                   <td className="px-4 py-2">{processo.status}</td>
+                  <td className="px-4 py-2">{processo.prazoId}</td>
                 </tr>
               ))}
             </tbody>
